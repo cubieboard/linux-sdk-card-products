@@ -1,0 +1,22 @@
+# /etc/modules: kernel modules to load at boot time.
+#
+# This file contains the names of kernel modules that should be loaded
+# at boot time, one per line. Lines beginning with "#" are ignored.
+
+#For SATA Support
+gpio_sunxi
+pwm_sunxi
+sunxi_gmac
+disp
+lcd
+hdmi
+ump
+mali
+bcmdhd
+sunxi_ss
+
+
+
+# if you want access point mode, load wifi module this way: bcmdhd op_mode=2
+# and edit /etc/init.d/hostapd change DAEMON_CONF=/etc/hostapd.conf ; edit your wifi net settings in hostapd.conf ; reboot
+

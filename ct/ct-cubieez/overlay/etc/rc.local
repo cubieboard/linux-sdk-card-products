@@ -1,0 +1,30 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+alias ls="ls --color"
+#echo mmc0 > /sys/class/leds/green\:ph20\:led1/trigger
+#echo mmc0 > /sys/class/leds/blue\:ph21\:led2/trigger
+
+#suitable for battery driven devices.  comment /uncomment one of the below for YOUR needs.
+#echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo performance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+
+#I deliberately set these even though it may not be used for your governor choice.
+echo 1008000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+echo 1008000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+
+echo 25 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+echo 10 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
+echo 1 > /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
+
+exit 0
