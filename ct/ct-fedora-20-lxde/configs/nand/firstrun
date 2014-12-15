@@ -1,0 +1,50 @@
+#!/bin/sh
+
+tf_card=/dev/mmcblk0
+
+repartition()
+{
+	touch /root/resizefs
+    echo "
+d
+2
+n
+p
+2
+
+
+p
+w
+q
+" | fdisk ${tf_card} > /dev/null
+}
+
+if [ -f /root/resizefs ]; then
+	/sbin/resize2fs ${tf_card}p2
+	rm /root/resizefs
+fi
+
+if [ -f /root/firstrun ]; then
+	echo firstup setup begin
+	dpkg -i /root/debs/*
+		echo "First run. This process takes around 2 minutes to finish..." >> /dev/tty0
+		echo "Creating ssh keys..." >> /dev/tty0
+
+	        NEWMAC=00:01:43:`openssl rand -hex 3 | sed 's/\(..\)/\1:/g; s/.$//'`
+                sed -e 's/ether/ether '$NEWMAC'/g' -i /etc/network/interfaces
+                sed -e 's/ether/ether '$NEWMAC'/g' -i /etc/network/interfaces.hostapd
+	        rm /etc/ssh/ssh_host*
+                dpkg-reconfigure openssh-server >> /dev/tty0
+		
+	
+	repartition
+        
+
+
+	rm /root/firstrun
+
+	echo firstup setup done
+   reboot 
+fi
+
+
