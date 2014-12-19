@@ -16,5 +16,5 @@ Cubieez Readme
 
 
 --------
- aaron@cubietech.com
- 20141020 
+ support@cubietech.com
+ 20141218 
