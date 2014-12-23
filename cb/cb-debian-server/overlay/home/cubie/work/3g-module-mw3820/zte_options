@@ -1,0 +1,18 @@
+/dev/ttyUSB1
+115200
+crtscts
+modem
+persist
+lock
+noauth
+noipdefault
+debug
+nodetach
+user card
+password card
+ipcp-accept-local
+ipcp-accept-remote
+replacedefaultroute
+defaultroute
+usepeerdns
+

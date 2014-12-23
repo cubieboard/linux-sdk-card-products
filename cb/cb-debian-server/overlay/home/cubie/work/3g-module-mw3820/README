@@ -1,0 +1,10 @@
+zte-mw3820 demo 
+===============
+1.work space: debian-server-cb2-bootcard
+2.status:
+-China Mobile can not work 
+-China Unicom can work both Dial and Internet
+3.How to:
+-apt-get install ppp ppp-dev 
+-run ppp-start.sh script to start ppp service 
+
