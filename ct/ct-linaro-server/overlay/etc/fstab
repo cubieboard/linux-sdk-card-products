@@ -1,0 +1,2 @@
+# UNCONFIGURED FSTAB FOR BASE SYSTEM
+tmpfs            /tmp           tmpfs    size=20m 0       0

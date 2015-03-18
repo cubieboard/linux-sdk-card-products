@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -f /root/firstrun ]; then
+	echo firstup setup begin
+	resize2fs /dev/nandb
+	dpkg -i /root/debs/*.deb
+	rm /root/firstrun
+	echo firstup setup done
+	(cd /; chown root:root . ..)
+fi
+
+
