@@ -24,7 +24,26 @@ part_card()
 #2048,24576,L
 #,,L
 #EOF
+flag=`fdisk -l /dev/mmcblk0 | grep Units | grep 8192`
+if [ -n "$flag" ] ; then
+echo 8192
+fdisk /dev/$card <<EOF
+o
+n
+p
+1
+128
+2048
+n
+p
+2
+2049
 
+w
+EOF
+
+else
+echo 32768
 fdisk /dev/$card <<EOF
 o
 n
@@ -39,8 +58,7 @@ p
 
 w
 EOF
-
-
+fi
 	if [ $? -ne 0 ]; then
 		echo "err in sfdisk" > /log.txt
 		led_when_err
