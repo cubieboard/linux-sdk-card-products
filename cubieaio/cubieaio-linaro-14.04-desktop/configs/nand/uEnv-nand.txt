@@ -1,3 +1,0 @@
-root=/dev/nandb
-nand_root=/dev/nandb
-extraargs=console=tty0 hdmi.audio=EDID:0 disp.screen0_output_mode=EDID:1280x720p50 rootwait panic=10 rootfstype=ext4 rootflags=discard
