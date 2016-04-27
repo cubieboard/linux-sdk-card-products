@@ -1204,6 +1204,8 @@ spdif_din           =
 [audio_para]
 audio_used          = 1
 audio_pa_ctrl        = port:PH15<1><default><default><1>
+playback_used       = 1
+capture_used        = 1
 
 [switch_para]
 switch_used         = 1
@@ -1343,6 +1345,7 @@ pmu_shutdown_chgcur2     = 1200
 pmu_suspendpwroff_vol    = 3500
 
 pmu_batdeten             = 1
+pmu_backupen = 1
 
 [recovery_key]
 key_min			    = 4
