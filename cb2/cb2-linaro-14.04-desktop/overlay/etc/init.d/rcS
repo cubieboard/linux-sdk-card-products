@@ -1,0 +1,12 @@
+#! /bin/sh
+#
+# rcS
+#
+# Call all S??* scripts in /etc/rcS.d/ in numerical/alphabetical order
+#
+
+/etc/init.d/firstrun
+modprobe g_mass_storage file=/dev/mmcblk0p1 removable=yes stall=0
+
+exec /etc/init.d/rc S
+
